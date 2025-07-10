@@ -28,15 +28,6 @@ public class SignupController {
         }
 
     }
-    @GetMapping("/")
-    public String home() {
-        return "Welcome to the API!";
-    }
-
-    @GetMapping("/health")
-    public String health() {
-        return "OK";
-    }
 
     // Classe interne pour les erreurs
     public static class ErrorResponse {
