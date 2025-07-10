@@ -29,7 +29,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/", "/health", "/api/auth/**").permitAll()  // Ajout de "/" et "/health"
+                        .requestMatchers("/", "/health", "/actuator/**", "/api/auth/**").permitAll()
                         .anyRequest().authenticated()
                 );
 
@@ -39,7 +39,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("*")); // Autorise tout domaine
+        configuration.setAllowedOrigins(List.of("*"));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(false);
