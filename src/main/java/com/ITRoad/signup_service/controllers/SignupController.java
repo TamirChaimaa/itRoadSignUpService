@@ -26,6 +26,16 @@ public class SignupController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(new ErrorResponse(e.getMessage()));
         }
+
+    }
+    @GetMapping("/")
+    public String home() {
+        return "Welcome to the API!";
+    }
+
+    @GetMapping("/health")
+    public String health() {
+        return "OK";
     }
 
     // Classe interne pour les erreurs
